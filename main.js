@@ -31,18 +31,34 @@ function carFunction(event) {
   if (event.key === 'w') {
     carDOM.className = 'north';
     car.direction = 'north';
+    if (car.started === true) {
+      clearInterval(movementIntervalID);
+      movementIntervalID = setInterval(carNorth, 16);
+    }
   }
   if (event.key === 'a') {
     carDOM.className = 'west';
     car.direction = 'west';
+    if (car.started === true) {
+      clearInterval(movementIntervalID);
+      movementIntervalID = setInterval(carWest, 16);
+    }
   }
   if (event.key === 's') {
     carDOM.className = 'south';
     car.direction = 'south';
+    if (car.started === true) {
+      clearInterval(movementIntervalID);
+      movementIntervalID = setInterval(carSouth, 16);
+    }
   }
   if (event.key === 'd') {
     carDOM.className = 'east';
     car.direction = 'east';
+    if (car.started === true) {
+      clearInterval(movementIntervalID);
+      movementIntervalID = setInterval(carEast, 16);
+    }
   }
 }
 
