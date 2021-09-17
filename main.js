@@ -11,13 +11,13 @@ document.addEventListener('keydown', carFunction);
 function carFunction(event) {
   if (event.key === ' ') {
     if (car.direction === 'north') {
-      setInterval(function () { car.yAxis--; carDOM.style = 'top: ' + car.yAxis.toString() + 'px; left: ' + car.xAxis.toString() + 'px;'; }, 16);
+      setInterval(carNorth, 16);
     } else if (car.direction === 'south') {
-      setInterval(function () { car.yAxis++; carDOM.style = 'top: ' + car.yAxis.toString() + 'px; left: ' + car.xAxis.toString() + 'px;'; }, 16);
+      setInterval(carSouth, 16);
     } else if (car.direction === 'west') {
-      setInterval(function () { car.xAxis--; carDOM.style = 'top: ' + car.yAxis.toString() + 'px; left: ' + car.xAxis.toString() + 'px;'; }, 16);
+      setInterval(carWest, 16);
     } else if (car.direction === 'east') {
-      setInterval(function () { car.xAxis++; carDOM.style = 'top: ' + car.yAxis.toString() + 'px; left: ' + car.xAxis.toString() + 'px;'; }, 16);
+      setInterval(carEast, 16);
     }
 
   }
@@ -37,4 +37,21 @@ function carFunction(event) {
     carDOM.className = 'east';
     car.direction = 'east';
   }
+}
+
+function carNorth() {
+  car.yAxis--;
+  carDOM.style = 'top: ' + car.yAxis.toString() + 'px; left: ' + car.xAxis.toString() + 'px;';
+}
+function carSouth() {
+  car.yAxis++;
+  carDOM.style = 'top: ' + car.yAxis.toString() + 'px; left: ' + car.xAxis.toString() + 'px;';
+}
+function carWest() {
+  car.xAxis--;
+  carDOM.style = 'top: ' + car.yAxis.toString() + 'px; left: ' + car.xAxis.toString() + 'px;';
+}
+function carEast() {
+  car.xAxis++;
+  carDOM.style = 'top: ' + car.yAxis.toString() + 'px; left: ' + car.xAxis.toString() + 'px;';
 }
